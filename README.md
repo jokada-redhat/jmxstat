@@ -4,14 +4,14 @@
 
 The jmxstat is used for collecting JMX metrics of multiple remote EAP or JDG servers.
 
-The script is written in JavaScript and is runs with **jrunscript** (or jjs) included in JDK. This is because of implementaion simplicity and ease of customization.
+The script is written in JavaScript and runs with **jrunscript** (or jjs) included in JDK. The reason why I choose JavaScript is implementaion simplicity and ease of customization.
 
-In order to use in the production environment, the jmxstat has the following features:
+The jmxstat has the following features to fit the production environment:
 
 * Metrics of multiple remote servers can be collected from single client host.
 * JMX query invocations to multiple servers are processed concurrently and all metrics are collected in fork/join pattern. In this way, the delay of metrics output is minimized.
 * The internal nested concurrent processing is simplified implementation using Java 8 parallel stream API. It is easily customizable.
-* The script is continued to run like daemon process and collecting the metrics periodically with specified interval time. Even if the target servers are stopped, you don't need to restart the jmxstat script. It will try to reconnect the target server and continue to collect metrics after the servers comes back. In order to minimize the server load, jmxstat caches and reuses the established JMX connections.
+* The script is continued to run like daemon process and collecting the metrics periodically with specified interval time. Even if the target servers are stopped, you don't need to restart the jmxstat script. It will try to reconnect the target servers and continue to collect metrics after the servers comes back. In order to minimize the server load, jmxstat caches and reuses the established JMX connections.
 * You can customize the configuration file, which defines MBean names and attributes that you want. The wild card (* or ?) is available for MBean name in the configuration file.
 
 ## Files
@@ -80,7 +80,7 @@ var metrics = [
 
 ## How to use jmxstat
 
-First of all, you must define the environment variable EAP_HOME
+First of all, you must define the environment variable EAP_HOME.
 
 ~~~
 $ export JDG_HOME=/opt/jboss/jboss-datagrid-6.5.1-server

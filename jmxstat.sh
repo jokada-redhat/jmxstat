@@ -13,6 +13,15 @@ else
 CONFIG=$1
 CLASSPATH=${EAP_HOME}/bin/client/jboss-cli-client.jar
 
-jrunscript -cp "$CLASSPATH" -f "${BASEDIR}/jmxstat.js" "${BASEDIR}/${CONFIG}"
+# Setup the 'JRUNSCRIPT'
+if [ "x$JRUNSCRIPT" = "x" ]; then
+    if [ "x$JAVA_HOME" != "x" ]; then
+        JRUNSCRIPT="$JAVA_HOME/bin/jrunscript"
+    else
+        JRUNSCRIPT="jrunscript"
+    fi
+fi
+
+$JRUNSCRIPT -cp "$CLASSPATH" -f "${BASEDIR}/jmxstat.js" "${BASEDIR}/${CONFIG}"
 
 fi

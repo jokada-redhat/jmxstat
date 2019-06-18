@@ -65,10 +65,10 @@ var metrics = [
 
 ## jmxstatの実行方法
 
-スクリプトを実行する前に、環境変数JDG_HOMEを設定してください。
+スクリプトを実行する前に、環境変数`EAP_HOME`を設定してください。
 
 ~~~
-$ export JDG_HOME=/opt/jboss/jboss-datagrid-6.5.1-server
+$ export EAP_HOME=/opt/jboss/jboss-datagrid-6.5.1-server
 ~~~
 
 また、このスクリプトはJava 8のJDKを必要とします。以下のコマンドを実行し、JDKのバージョンが1.8.0であることを確認してください。

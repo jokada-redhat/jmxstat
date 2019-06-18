@@ -83,7 +83,7 @@ var metrics = [
 First of all, you must define the environment variable EAP_HOME.
 
 ~~~
-$ export JDG_HOME=/opt/jboss/jboss-datagrid-6.5.1-server
+$ export EAP_HOME=/opt/jboss/jboss-datagrid-6.5.1-server
 ~~~
 
 The jmxstat requires Java 8. Check JDK version like this.

@@ -5,11 +5,22 @@ case "`uname`" in
            ;;
 esac
 
+# Read an optional running configuration file
+if [ "x$RUN_CONF" = "x" ]; then
+    RUN_CONF="$BASEDIR/jmxstat.conf"
+fi
+if [ -r "$RUN_CONF" ]; then
+    . "$RUN_CONF"
+fi
+
 if [ "x${EAP_HOME}" == "x" ]; then
     echo "Error: Please set environment variable EAP_HOME."
+    exit 1
 elif [ $# -lt 1 ]; then
     echo "Usage: `basename $0` <metrics-config>"
-else
+    exit 1
+fi
+
 CONFIG=$1
 CLASSPATH=${EAP_HOME}/bin/client/jboss-cli-client.jar
 
@@ -22,6 +33,9 @@ if [ "x$JRUNSCRIPT" = "x" ]; then
     fi
 fi
 
-$JRUNSCRIPT -cp "$CLASSPATH" -f "${BASEDIR}/jmxstat.js" "${BASEDIR}/${CONFIG}"
-
+# Setup the 'JS_SCRIPT'
+if [ "x$JS_SCRIPT" = "x" ]; then
+    JS_SCRIPT="jmxstat.js"
 fi
+
+$JRUNSCRIPT -cp "$CLASSPATH" -f "${BASEDIR}/${JS_SCRIPT}" "${BASEDIR}/${CONFIG}"

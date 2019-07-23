@@ -28,8 +28,8 @@ The structure of this tools is as follows:
     ├── cachestats_jdg6.config    Configuration file for JDG6 cache status
     ├── cachestats_jdg7.config    Configuration file for JDG7 cache status
     ├── jvm.config                Configuration file for JVM
-│   ├── nio.config                Configuration file for NIO buffer pool status
-│   ├── rebalance_jdg7.config     Configuration file for JDG7 cluster-wide rebalance status
+    ├── nio.config                Configuration file for NIO buffer pool status
+    ├── rebalance_jdg7.config     Configuration file for JDG7 cluster-wide rebalance status
     ├── replication_jdg6.config   Configuration file for JDG6 replication status
     └── replication_jdg7.config   Configuration file for JDG7 replication status
 ~~~

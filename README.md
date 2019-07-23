@@ -21,14 +21,17 @@ The structure of this tools is as follows:
 ~~~
 .
 ├── jmxstat.sh*                   The sh script for jmxstat (for Linux)
+├── jmxstat.conf                  Configuration file for sh script (for Linux)
 ├── jmxstat.bat                   The bat script for jmxstat (for Windows)
 ├── jmxstat.js                    The main part of jmxstat implementation
 └── config/
     ├── cachestats_jdg6.config    Configuration file for JDG6 cache status
     ├── cachestats_jdg7.config    Configuration file for JDG7 cache status
     ├── jvm.config                Configuration file for JVM
+│   ├── nio.config                Configuration file for NIO buffer pool status
+│   ├── rebalance_jdg7.config     Configuration file for JDG7 cluster-wide rebalance status
     ├── replication_jdg6.config   Configuration file for JDG6 replication status
-    └── replication_jdg7.config   Configuration file for JDG' replication status
+    └── replication_jdg7.config   Configuration file for JDG7 replication status
 ~~~
 
 ## Configuration file (config/*.config)
@@ -85,6 +88,8 @@ First of all, you must define the environment variable EAP_HOME.
 ~~~
 $ export EAP_HOME=/opt/jboss/jboss-datagrid-6.5.1-server
 ~~~
+
+or you can modify `jmxstat.conf`.
 
 The jmxstat requires Java 8. Check JDK version like this.
 

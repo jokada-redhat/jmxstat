@@ -33,9 +33,4 @@ if [ "x$JRUNSCRIPT" = "x" ]; then
     fi
 fi
 
-# Setup the 'JS_SCRIPT'
-if [ "x$JS_SCRIPT" = "x" ]; then
-    JS_SCRIPT="jmxstat.js"
-fi
-
-$JRUNSCRIPT -cp "$CLASSPATH" -f "${BASEDIR}/${JS_SCRIPT}" "${BASEDIR}/${CONFIG}"
+$JRUNSCRIPT -cp "$CLASSPATH" -f "${BASEDIR}/jmxstat.js" "${BASEDIR}/${CONFIG}"
